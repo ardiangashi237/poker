@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block title %}Referral{% endblock %}
+{% block content %}
+
+<div id="refer_friends_page" class="container">
+        <section class="top_section">
+            <h2>REFER FRIENDS</h2>
+            <div class="member-search">
+                <form method="post">
+                    <input class="search_input" type="text" name="search" placeholder="SEARCH MEMBERS" value="" />
+                    <input class="search_button" type="submit" value="" />
+                </form>
+            </div>   
+        </section>
+        <section class="left_col">
+            <div class="member_picture">
+                <div><!-- Player picture -->
+                    <img src="{{ STATIC_URL }}www/img/member_picture.png" alt="member" />
+                </div>
+                <a href="#"><span><!-- Play Now button --></span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{% url member_page %}"><span>MEMBER PAGE</span></a></li>
+                    <li><a href="{% url account_settings %}"><span>ACCOUNT SETTINGS</span></a></li>
+                    <li><a href="{% url member_auction %}"><span>AUCTIONS</span></a></li>
+                    <li><a href="#"><span>LEADERBOARDS</span></a></li>
+                    <li class="active"><a href="#"><span>REFER FRIENDS</span></a></li>
+                    <li><a href="{% url member_partner %}"><span>PARTNER OFFERS</span></a></li>
+                    <li><a href="#"><span>SUPPORT</span></a></li>
+                    <li id="last_nav"><a href="#"><span>LOG OUT</span></a></li>
+                </ul>
+            </nav>
+            
+        </section>
+        <section class="right_col">
+            <div class="middle_div">
+                <h3 class="welcome">WELCOME, {{ user.username }}</h3>
+                <h5 class="balance">REGULAR CHIP BALANCE: <span>{{ user.userprofile.user_real_chip_balance }}</span> / LIVE CHIP BALANCE: <span>{{ user.userprofile.user_live_chip_balance }}</span></h5>
+                
+                <h6>Earn 100 Chips for You and Your Friend!</h6>
+                <ul class="pCards">
+                    <li class="diamonds">Are you ready to invite your friends to LiveAce and earn free Chips for both you
+and your friend in the process?</li>
+                    <li class="hearts">If your friend registers for an account and plays on our site, both you and your friend will receive 100 Chips immediately</li>
+                    <li class="speds">You can invite up to 20 friends per day and there are no limits to the total Chip awards that you can receive!</li>
+                    <li class="clubs">Please enter the email addresses in the form below, add a customized message and start earning chips as soon as they register and play!</li>
+                </ul>
+                <h6>There’s No Limit to the Number of Friends You Invite<br />
+                or the Rewards You Can Earn</h6>
+                <div class="refer-form">
+                    <form>
+                        <p class="item-label"><label for="email">Email Address 1</label></p>
+                        <p class="item-content"><input name="email" type="text" ><span class="inv-another"><a href="#" ><img src="{{ STATIC_URL }}www/img/plus.png" /><span class="inv-another">Invite Another Friend</span></a></span></p>
+                        <p class="item-label"><label for="note">Add a personal Note</label></p>
+                        <p class="item-content"><textarea name="" cols="" rows="">
+I’d like to tell you about this great poker site, Liveace.com.
+Check it out today!
+
+- First / Last name
+                        </textarea></p>
+                        <p><input type="submit" value="" /></p>
+                    </form>
+                </div>
+            </div>
+            <div class="adSpace_160x600"><!-- ad space -->
+                <img src="{{ STATIC_URL }}www/img/member_page_adSpace_160x600.png" alt="" />
+            </div> 
+        </section>
+     </div>
+
+     <div class="bottom_background"></div>
+{% endblock %}

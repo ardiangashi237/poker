@@ -1,0 +1,51 @@
+[
+    {
+        "pk": 1,
+        "model": "auth.user",
+        "fields": {
+            "username": "stuart",
+            "first_name": "",
+            "last_name": "",
+            "is_active": true,
+            "is_superuser": true,
+            "is_staff": true,
+            "last_login": "2012-09-19T22:44:07Z",
+            "groups": [],
+            "user_permissions": [],
+            "password": "pbkdf2_sha256$10000$zjDvlvXZxUzr$3AzMF9IqLSwLLwHvgbrY/HztMbf8qPEKJKZHScIVs2Q=",
+            "email": "stuart@liveace.com",
+            "date_joined": "2012-09-05T23:28:47Z"
+        }
+    }
+]
+[
+    {
+        "pk": 1,
+        "model": "santiago.userprofile",
+        "fields": {
+            "city": "Morton",
+            "pin_delivery": "",
+            "zip": "61550",
+            "street1": "325 N 3rd Ave.",
+            "street2": "",
+            "birthdate": "1977-02-25",
+            "security_answer": "Austin",
+            "phone": "",
+            "state": "IL",
+            "security_question": 1,
+            "user": 1,
+        }
+    }
+]
+[
+    {
+        "pk": 1,
+        "model": "santiago.userchipcount",
+        "fields": {
+            "live_chips": 0,
+            "serial": 62,
+            "real_chips": 200,
+            "user": 1
+        }
+    }
+]

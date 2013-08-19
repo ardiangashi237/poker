@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}Top Up Chips{% endblock %}
+
+{% block content %}
+
+<div id="legal_page" class="container">
+  <div id="page-wrap" >
+        <section class="top_section">
+            <h2>Top Up Your Chips</h2>
+        </section>
+        <section class="left_col">
+{% if user.get_profile.current_member_level.ad_required_for_top_up %}
+
+    <h1>Please Watch This Video</h1>
+    <p>When you are finished, click the button below</p>
+    <form method='post' action="{% url perform-top-up %}">
+        {% csrf_token %}
+        <input type='submit' value='Finished' />
+    </form>
+
+{% else %}
+
+    <h1>Welcome {{ request.user.get_profile.user_first_name }}</h1>
+    <p>Thank you for being a {{ request.user.get_profile.current_member_level.name }} Player!</p>
+    <p>Please click the button below to top up your chips.</p>
+    <form method='post' action="{% url perform-top-up %}">
+        {% csrf_token %}
+        <input type='submit' value='Top Up' />
+    </form>
+
+{% endif %}
+
+    </section>
+  </div>
+</div>
+{% endblock content %}
+

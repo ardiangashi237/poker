@@ -1,0 +1,105 @@
+.cfe-radio,
+.cfe-checkbox,
+.cfe-select,
+.cfe-file {
+display: inline-block;
+cursor: pointer;
+background: 0 0 no-repeat;
+}
+
+.cfe-radio {
+background: url(../img/radios.png);
+width: 19px;
+height: 19px;
+}
+
+.cfe-radio.cfe-state-0 { background-position: 0 0; }
+.cfe-radio.cfe-state-1 { background-position: 0 -19px; }
+.cfe-radio.cfe-state-2 { background-position: 0 -38px; }
+.cfe-radio.cfe-state-3 { background-position: 0 -56px; }
+
+.cfe-checkbox {
+background: url(../img/check.png);
+width: 15px;
+height: 14px;
+padding: 0;
+}
+
+.cfe-checkbox.cfe-state-0 { background-position: 0 0; }
+.cfe-checkbox.cfe-state-1 { background-position: 0 -14px; }
+.cfe-checkbox.cfe-state-2 { background-position: 0 -28px; }
+.cfe-checkbox.cfe-state-3 { background-position: 0 -42px; }
+
+.cfe-select,
+.cfe-file {
+overflow: hidden;
+position: absolute;
+padding: 6px 24px 6px 11px;
+width: 217px;
+height: 21px;
+margin-top:-1px;
+}
+
+.cfe-select {
+background: url(../img/select.png);
+background-repeat:no-repeat;
+}
+p.security-question .cfe-select {
+background: url(../img/select-single.png);
+background-repeat:no-repeat;
+}
+
+p.birthdate .cfe-select {
+	background: url(../img/select-small.png);
+	background-repeat:no-repeat;
+	width: 47px;
+	height: 21px;
+	float:left;
+}
+p.states .cfe-select {
+	/*background: url(../img/select-medium.png);*/
+	background-repeat:no-repeat;
+	width: 220px;
+	height: 21px;
+	float:left;
+}
+
+span#cfe-exp_month, span#cfe-exp_year {
+	background: url(../img/select-medium.png);
+	background-repeat:no-repeat;
+	width: 220px;
+	height: 21px;
+	float:left;
+}
+
+select.cfe-styled {
+position: relative;
+width: 161px;
+}
+
+#register-step2 select.drop_down252 {
+	width: 252px;
+}
+
+.cfe-file {
+background: url(../img/file.gif);
+}
+
+/* Disabled style */
+.cfe-disabled,
+.cfe-readonly {
+/* IE 8 */
+-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+
+/* IE 5-7 */
+filter: alpha(opacity=50);
+
+/* CSS3 */
+opacity: 0.5;
+}
+
+/* Demo only*/
+
+div {
+
+}

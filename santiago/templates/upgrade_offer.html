@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}Upgrade Now{% endblock %}
+
+{% block content %}
+
+<div id="upgrade_premium_page" class="container">
+  <div id="upgrade" >
+        <section class="top_section">
+            <h2>Upgrade to a Club Live Premium account?</h2>
+        </section>
+        <section class="left_col">
+        <div class="upgrade_now">
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="upgrade_now" />
+                <button type="submit">Upgrade Now</button>
+            </form>
+        </div>
+        <div class="upgrade_later">
+            <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="upgrade_later" />
+                <button type="submit">Upgrade Later</button>
+            </form>
+        </div>
+        </section>
+  </div>
+</div>
+
+{% endblock content %}
+

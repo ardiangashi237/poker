@@ -1,0 +1,56 @@
+[
+    {
+        "pk": 1,
+        "model": "santiago.chippackage",
+        "fields": {
+            "price": "2.49",
+            "chip_qty": 100,
+            "name": "Straddle"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "santiago.chippackage",
+        "fields": {
+            "price": "4.99",
+            "chip_qty": 200,
+            "name": "Steam"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "santiago.chippackage",
+        "fields": {
+            "price": "9.99",
+            "chip_qty": 400,
+            "name": "Basic"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "santiago.chippackage",
+        "fields": {
+            "price": "19.99",
+            "chip_qty": 1000,
+            "name": "Ringer"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "santiago.chippackage",
+        "fields": {
+            "price": "29.99",
+            "chip_qty": 2000,
+            "name": "Rounder"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "santiago.chippackage",
+        "fields": {
+            "price": "39.99",
+            "chip_qty": 3000,
+            "name": "Grinder"
+        }
+    }
+]

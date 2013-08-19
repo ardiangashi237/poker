@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% load url from future %}
+{% load i18n %}
+{% load bootstrap_tags %}
+
+{% block head_title %}{% trans "Log in" %}{% endblock %}
+
+{% block content %}
+    <div id="register-step1" class="container">
+        <section class="top_section">
+            <h2>TERMS AND CONDITIONS</h2>
+        </section>
+        <section class="single_col">
+            <h4 class="sec-heading">TERMS AND CONDITIONS</h4>
+            <p class="desc">This is a placeholder for the terms page.</p>
+            <div class="registerFormStp1">
+                <p>This is where terms should go</p>
+            </div>
+        </section>
+        <div class="span4">
+            {% include "account/_login_sidebar.html" %}
+        </div>
+    </div>
+{% endblock %}
+
+
+

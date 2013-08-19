@@ -1,0 +1,255 @@
+[
+    {
+        "pk": 1,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": "F",
+            "type": "F",
+            "timestamp": null,
+            "filename": "HiResFemalecut.jpg"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": "M",
+            "type": "F",
+            "timestamp": null,
+            "filename": "HiResMalecut.jpg"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS01_Cowboy_final2.png"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS01_lizard.png"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS02_horse.png"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS02_Pirate_final2.png"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS03_dog.png"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS03_Wizard_final.png"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS03_Wizard_final2.png"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS04_Girl_sexy_final4.png"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS04_goldfish4.png"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS05_donkey3.png"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS05_Girl_nerd_final.png"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS06_snake.png"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS06_Spartan_final.png"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS07_Ninja_final2.png"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS07_shark3.png"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS08_Gangster_final.png"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS08_monkey.png"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS09_lion.png"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS10_T-rex.png"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS11_ATMachine.png"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "santiago.avatar",
+        "fields": {
+            "active": true,
+            "gender": null,
+            "type": "P",
+            "timestamp": null,
+            "filename": "RS12_Safe.png"
+        }
+    }
+]

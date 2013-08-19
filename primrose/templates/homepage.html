@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+{% block title %}Homepage{% endblock %}
+{% block extrahead %}
+    <style type="text/css">
+      br { clear: both; }
+      .cntSeparator {
+        font-size: 54px;
+        font-weight:bolder;
+        margin: -15px 7px;
+        color: #fff;
+      }
+      #desc { 
+        text-align:center;    
+        background-image:none;
+        height:18px;
+       }
+      #desc span {
+        display:inline-block;
+        font-family: Arial;
+        width: 70px;
+        margin-top:2px;
+        font-size: 13px;
+        font-weight: bold;
+        color: #fff;
+      }
+      #counter {
+        background-image:none;
+        margin-left: 65px;
+      }
+    </style>
+    <script>
+    $(function(){
+        var now = new Date();
+        var hr = 23 - now.getHours();
+        if (hr < 10) hr = "0" + hr;
+        var min = 59 - now.getMinutes();
+        if (min < 10) min = "0" + min;
+        var sec = 60 - now.getSeconds();
+        if (sec < 10) sec = "0" + sec;
+        var startT = hr + ":" + min + ":" + sec;
+
+        $('#counter').countdown({
+          image: '{{ STATIC_URL }}www/img/digits.png',
+          digitWidth:70,  //35,
+          digitHeight:103,  //51,
+          digitImages: 5,
+          startTime: startT,
+          format: "hh:mm:ss",
+        });
+        
+        //Assign to those input elements that have 'placeholder' attribute
+        jQuery('input[placeholder], textarea[placeholder]').each(function(){        
+                var input = $(this);
+
+                jQuery(input).val(input.attr('placeholder'));
+
+                jQuery(input).focus(function(){
+                     if (input.val() == input.attr('placeholder')) {
+                         input.val('');
+                     }
+                });
+
+                jQuery(input).blur(function(){
+                    if (input.val() == '' || input.val() == input.attr('placeholder')) {
+                        input.val(input.attr('placeholder'));
+                    }
+                });
+        });
+    });
+    </script>
+    <script src="{{ STATIC_URL }}www/js/jquery.countdown.js" type="text/javascript" charset="utf-8"></script>
+
+{% endblock %}
+
+{% block content %}
+    <div id="main">
+        <!--<div id="counter"></div>-->
+        <div class="banner">
+            <div class="beta"><img src="{{ STATIC_URL }}www/img/beta.png" alt="" /></div>
+            <div class="picture"><img src="{{ STATIC_URL }}www/img/banner_image_new.png" alt="" /></div>
+            {% if user.is_authenticated %}
+                <a href="{% url tables-list %} " class="playNow_button"><span></span></a>
+            {% else %}
+                <a href="{% url account_get_started %}" class="playNow_button"><span></span></a>
+            {% endif %}
+        </div>
+        <!--<div id="counter"></div>-->
+        <div class="below_banner">
+            <div class="first_box">
+                <h2>NEXT GIVEAWAY</h2>
+                <img src="{{ STATIC_URL }}www/img/bottom_items_clock.png" alt="countdown"/>
+                <!--
+                <div id="desc">
+                    <span>HOUR</span>
+                    <span>MIN</span>
+                    <span>SEC</span>
+                </div>-->
+                <img src="{{ STATIC_URL }}www/img/cash1000.png" alt="" />
+                <img class="money_image" src="{{ STATIC_URL }}www/img/money-illustration-homepage.png" alt="" />
+            </div>
+            <div class="second_box">
+                <h2>PLAY ON ANY DEVICE</h2>
+                <img src="{{ STATIC_URL }}www/img/mobile_devices.png" alt="" />
+                <span class="small_text">NO SOFTWARE TO DOWNLOAD</span>
+            </div>
+            <div class="third_box">
+                <h2>SEE HOW IT WORKS</h2>
+                <iframe width="278" height="171" src="http://www.youtube.com/embed/-vj0wizl_dw" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="ad_space">
+            <img src="{{ STATIC_URL }}www/img/Oreoad.gif" alt="ad" />
+        </div>
+    </div>
+{% endblock %}
+

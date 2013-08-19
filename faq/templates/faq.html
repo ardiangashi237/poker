@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block title %}Faq{% endblock %}
+{% block extrahead %}{% endblock %}
+
+{% block content %}
+<div id="faq_page" class="container">
+        <section class="top_section">
+            <h2>FREQUENTLY ASKED QUESTIONS</h2>
+        </section>
+        <section class="left_col">
+            <nav>
+                <ul>
+                    {% for category in faq_categories %}
+                        {% if forloop.last %}
+                            <li id="last_nav" {% if category.name == faq_category %} class="active" {% endif %}><a href="/faq/{{ category.slug }}"><span>{{ category.name }}</span></a></li>
+                        {% else %}
+                            <li {% if category.name == faq_category %} class="active" {% endif %}><a href="/faq/{{ category.slug }}"><span>{{ category.name }}</span></a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </nav>
+
+            <div class="adSpace_160x600"><!-- ad space -->
+                <img src="{{ STATIC_URL }}www/img/netflix_ad.png" alt="" />
+            </div>
+
+        </section>
+        <section class="right_col">
+            <h3>{{ faq_title }}</h3>
+            <ul>
+                    {% for faq in faqs %}
+                    <li>
+                            <h4>Q&#58; {{ faq.question|safe }}</h4>
+                            <p>
+                                <span class="faq_answer"><strong>A&#58;</strong> </span>{{ faq.answer|safe }}
+                            </p>
+                    </li>
+                    {% endfor %}
+            </ul>
+        </section>
+    </div>
+
+    <div class="bottom_background"></div>
+{% endblock %}

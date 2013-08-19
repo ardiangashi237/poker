@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% load url from future %}
+{% load i18n %}
+{% load bootstrap_tags %}
+
+{% block title %}{% trans "Press" %}{% endblock %}
+
+{% block content %}
+    <div id="register-step1" class="container">
+        <section class="top_section">
+            <h2>PRESS</h2>
+        </section>
+        <section class="single_col">
+            <h4 class="sec-heading">PRESS AND NEWS</h4>
+            <p class="desc">This is a placeholder for the press page.</p>
+            <div class="registerFormStp1">
+                <p>This is where headlines should go</p>
+            </div>
+        </section>
+        <div class="span4">
+            {% include "account/_login_sidebar.html" %}
+        </div>
+    </div>
+{% endblock %}
+
+
+
+

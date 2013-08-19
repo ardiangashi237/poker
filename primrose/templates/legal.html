@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block title %}Legal{% endblock %}
+{% block extrahead %}{% endblock %}
+
+{% block content %}
+<div id="legal_page" class="container">
+        <section class="top_section">
+            <h2>100% LEGAL</h2>
+        </section>
+
+        <section class="left_col">
+            <h1>LiveAce is a U.S. Based, 100% Legal Online Poker Site</h1>
+            <ul class="top-list">
+                <li class="diamonds">LiveAce operates within the U.S. sweepstakes laws (where applicable)</li>
+                <li class="hearts">LiveAce is not a gambling site</li>
+                <li class="speds">Participation in our online poker games is restricted to individuals 18 years or older</li>
+            </ul>
+
+            <h1 class="states-heading">Eligible States</h2>
+            <ul class="sateslist">
+                <li>Alaska</li>
+                <li>Arizona</li>
+                <li>California</li>
+                <li>Colorado</li>
+                <li>Connecticut</li>
+                <li>Delaware</li>
+                <li>District of Columbia</li>
+                <li>Florida</li>
+                <li>Hawaii</li>
+            </ul>
+
+            <ul class="sateslist">
+                <li>Illinois</li>
+                <li>Iowa</li>
+                <li>Kansas</li>
+                <li>Kentucky</li>
+                <li>Louisiana</li>
+                <li>Maine</li>
+                <li>Massachusetts</li>
+                <li>Nebraska</li>
+                <li>Nevada</li>
+            </ul>
+
+            <ul class="sateslist">
+                <li>New Hampshire</li>
+                <li>New Jersey</li>
+                <li>New Mexico</li>
+                <li>New York</li>
+                <li>North Carolina</li>
+                <li>North Dakota</li>
+                <li>Ohio</li>
+                <li>Oregon</li>
+                <li>Pennsylvania</li>
+            </ul>
+
+            <ul class="sateslist">
+                <li>Rhode Island</li>
+                <li>Tennessee</li>
+                <li>Texas</li>
+                <li>Utah</li>
+                <li>Vermont</li>
+                <li>Virginia</li>
+                <li>West Virginia</li>
+                <li>Wisconsin</li>
+                <li>Wyoming</li>
+            </ul>
+
+            <div style="clear:both;"></div>
+            <p class="map-heading"><span>&nbsp;</span> Eligible States</p>
+            <img class="site-map" src="{{ STATIC_URL }}www/img/states-map.png" alt="States Map">
+        </section><!--left_col EOF-->
+
+        <section class="right_col">
+            <img src="{{ STATIC_URL }}www/img/blockbuster_ad.png" alt="States Map">
+        </section>
+    </div>
+
+    <div class="bottom_background"></div>
+{% endblock %}

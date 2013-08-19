@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}Purchase Chips | Billing Information{% endblock %}
+
+{% block content %}
+
+<div id="legal_page" class="container">
+    <div id="page-wrap" >
+        <section class="top_section">
+            <h2>Billing Information</h2>
+        </section>
+        <section class="left_col">
+        <div>Verify your selection and enter your billing information, then click Purchase.</div>
+        <ul>
+            <li>Package: {{ package.name }}</li>
+            <li>Chips: {{ package.chip_qty }}</li>
+            <li>Price: {{ package.price }}</li>
+        </ul>
+        <form method='post' action='{% url do-purchase %}'>
+            {% csrf_token %}
+            <input type='hidden' name='chip_package_id' value='{{ package.id }}' />
+            <input type='submit' value='Purchase' />
+        </form>
+        </section>
+    </div>
+</div>
+
+
+{% endblock content %}
+

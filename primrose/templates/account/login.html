@@ -1,0 +1,155 @@
+{% extends "layout.html" %}
+
+{% load url from future %}
+{% load i18n %}
+{% load bootstrap_tags %}
+{% load widget_tweaks %}
+
+{% block title %}Login{% endblock %}
+{% block extrahead %}
+{% endblock %}
+
+{% block content %}
+    <script>
+    function post(path, parameters) {
+        var form = $('<form></form>');
+
+        form.attr("method", "post");
+        form.attr("action", path);
+
+        $.each(parameters, function(key, value) {
+            var field = $('<input></input>');
+
+            field.attr("type", "hidden");
+            field.attr("name", key);
+            field.attr("value", value);
+
+            form.append(field);
+        });
+
+        // The form needs to be a part of the document in
+        // order for us to be able to submit it.
+        $(document.body).append(form);
+        form.submit();
+    }
+    </script>
+    <script>
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    </script>
+    <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : {{ facebook_app_id }}, // App ID {{ facebook_app_id }}
+            channelUrl : '', //http://ec2-67-202-51-236.compute-1.amazonaws.com/channel/', // Channel File
+            status     : true, // check login status
+            cookie     : true, // enable cookies to allow the server to access the session
+            xfbml      : true  // parse XFBML
+          });
+          // Additional initialization code here
+          FB.Event.subscribe('auth.authResponseChange', function(response) {
+            //do something here if login status changes
+          });
+        };
+        // Load the SDK Asynchronously
+        (function(d){
+           var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement('script'); js.id = id; js.async = true;
+           js.src = "//connect.facebook.net/en_US/all.js";
+           ref.parentNode.insertBefore(js, ref);
+         }(document));
+    </script>
+    <script>
+          var authenticate = function() {
+            FB.getLoginStatus(function(response) {
+                var csrftoken = getCookie('csrftoken');
+                if (response.status === 'connected') {
+                    alert('already connected');
+                    FB.api('/me', function (response) {
+                        post('{% url "account_login_fb" %}', {'fb_id': response.id, 'email':response.email, 'csrfmiddlewaretoken':csrftoken});
+                    })
+                } else if (response.status === 'not_authorized') {
+                    alert('You have not authorized LiveAce to access your Facebook account!');
+                } else {
+                    alert('logging in');
+                    FB.login(function response() {
+                        FB.api('/me', function (response) {
+                            post('{% url "account_login_fb" %}', {'fb_id': response.id, 'email':response.email, 'csrfmiddlewaretoken':csrftoken});
+                        });
+                    }, {scope: 'email,user_birthday,user_hometown,user_location'});
+                }
+            })
+          };
+    </script>
+    <div id="fb-root"></div>
+    <div id="signIn" class="container">
+        <section class="top_section">
+            <h2>SIGN IN</h2>
+        </section>
+        <section class="single_col">
+            {% if errors %}
+                <div class="messages messages-error">
+                {% for error in errors %}
+                    <div class="message message-error">{{ error }}</div>
+                {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if messages %}
+                <div class="messages messages-notify">
+                    {% for msg in messages %}
+                        <div class="message message-notify">{{ msg }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <div class="signInForm">
+                <form method="POST" action="{% url "account_login" %}" autocapitalize="off" class="form-horizontal"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
+                {% csrf_token %}
+                <table class="formitems">
+                        <tr for FREE>
+                            <td width="55%">
+                                <p class="item-label"><label for="username">Email or Username</label></p>
+                                <p class="item-content">{{ form.username }}</p>
+                                <p>{{ form.email.errors }}</p>
+                                <p class="item-label extra-margin"><label for="password">Password</label></p>
+                                <p class="item-content">{{ form.password }}</p>
+                                <p>{{ form.captcha.errors }}</p>
+                                <p class="item-label extra-margin"><label for="remember">Keep me logged in</label>&nbsp;&nbsp;{{ form.remember|append_attr:"checked:true" }}</p>
+                                <input type="submit"  value="SIGN IN" />
+                            </td>
+                            <td width="14%"><img alt="Or" src="{{ STATIC_URL }}www/img/reg-or.png" /></td>
+                            <td>
+                                <p class="item-content"><button type="button" class="facebook" onclick="authenticate();">SIGN IN</button></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan='3'>
+                                <p class="item-content"><a href="{% url "account_password_reset" %}" class="btn">{% trans "Forgot your password?" %}</a> | {% trans "Not a member?" %} <a href='{% url "account_get_started" %}'>Register for FREE</a></p>
+                            </td>
+                        </tr>
+                    </table>
+                    {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                </form>
+            </div>
+        </section>
+        <div class="span4">
+            {% include "account/_login_sidebar.html" %}
+        </div>
+    </div>
+{% endblock %}

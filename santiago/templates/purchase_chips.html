@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}Reload Chips{% endblock %}
+
+{% block content %}
+
+<div id="legal_page" class="container">
+  <div id="page-wrap" >
+        <section class="top_section">
+            <h2>Purchase a Chip Package</h2>
+        </section>
+        <section class="left_col">
+        <p><em> Note that you have purchased or earned {{ chips_this_week }} out of a maximum of {{ weekly_max }} chips so far this week.</em></p>
+        <div class="shadow-table">
+            <div class="top"></div>
+            <div class="contents">
+              <table cellspacing="2" >
+              <thead>
+                <tr>
+                  <th class="first" style="text-align:left;padding-left:10px;">Package</th>
+                  <th class="second">Chips</th>
+                  <th class="second">Price</th>
+                  <th class="third">&nbsp;<td>
+                </tr>
+              </thead>
+              <tbody>
+              {% for pkg in packages %}
+                  <tr>
+                      <td class="{% cycle 'odd' 'even' %}" style="text-align:left;">{{ pkg.name }}</td>
+                      <td class="{% cycle 'odd' 'even' %}" align="center">{{ pkg.chip_qty }}</td>
+                      <td class="{% cycle 'odd' 'even' %}" align="center">${{ pkg.price|stringformat:".2f" }}</td>
+                      <td class="{% cycle 'odd' 'even' %}" align="center">
+                          <form style="display: none;" id="buy_{{ forloop.counter }}" method='post' action="{% url chip-billing %}">
+                              {% csrf_token %}
+                              <input type="hidden" name="action" value="buy"/>
+                              <input type="hidden" name="chip_package_id" value="{{ pkg.pk }}"/>
+                          </form>
+                          <a href="#" onclick="$('#buy_{{ forloop.counter }}').submit()">buy</a>
+                      </td>
+                  </tr>
+              {% endfor %}
+                </tbody>
+                </table>
+            </div>
+            <div class="bottom"></div>
+        </section>
+  </div>
+</div>
+
+{% endblock content %}
+

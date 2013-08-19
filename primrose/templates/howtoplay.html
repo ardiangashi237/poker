@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+{% block title %}How to Play{% endblock %}
+{% block extrahead %}
+{% endblock %}
+
+{% block content %}
+<div id="toplay_page" class="container">
+        <section class="top_section">
+            <h2>HOW TO PLAY</h2>
+        </section>
+
+        <section class="single_col">
+            <ul class="steps">
+                <li class="left parent">
+                    <h2>STEP <span>1</span></h2>
+                    <p>Create Account and<br>
+                    Select Membership Package</p>
+                    <img src="{{ STATIC_URL }}www/img/step1.png" alt="Live Ace" style="height: 190px;">
+                    <ul>
+                        <li class="diamonds">Free one week Club Live Membership trial</li>
+                        <li class="hearts">Club Live Members enjoy exclusive benefits including our HandMaker™ Odds Calculator</li>
+                    </ul>
+                </li>
+
+                <li class="mid parent">
+                    <h2>STEP <span>2</span></h2>
+                    <p>Play Poker<br/>Anytime, Anywhere</p>
+                    <img src="{{ STATIC_URL }}www/img/step2.png" alt="Live Ace">
+                    <ul>
+                        <li class="speds">Play ring game poker on any device, no software to download</li>
+                        <li class="clubs">Choose from No Limit, Limit and Pot Limit Omaha</li>
+                    </ul>
+                </li>
+
+                <li class="right parent">
+                    <h2>STEP <span>3</span></h2>
+                    <p>Win Cash in Our Auctions</p>
+                    <img src="{{ STATIC_URL }}www/img/step3.png" alt="Live Ace">
+                    <ul>
+                        <li class="diamonds">Use chips you’ve won to win <br/>real money</li>
+                        <li class="clubs">Many chances to win in our daily cash auctions</li>
+                    </ul>
+                </li>   
+            </ul>
+
+            <div id="play-btn">
+                {% if user.is_authenticated %}
+                    <a href="{% url tables-list %}"><img src="{{ STATIC_URL }}www/img/btn-playnow.png" ></a>
+                {% else %}
+                    <a href="{% url account_get_started %}"><img src="{{ STATIC_URL }}www/img/btn-playnow.png" ></a>
+                {% endif %}
+            </div>
+
+            <p class="purchase-note">
+            * No Purchase Necessary to Win. Eligibility is based on your state's current sweepstakes laws and your age (18 years or over).<br>
+  LiveAce operates within the U.S. sweepstakes rules where legal - see Terms and Conditions for details and eligibility.
+            </p>
+
+        </section><!--single_col EOF-->
+    </div>
+    <div class="bottom_background"></div>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% block title %}Membership{% endblock %}
+{% block extrahead %}{% endblock %}
+
+{% block content %}
+<div id="membership_page" class="container">
+        <section class="top_section">
+            <h2>MEMBERSHIP</h2>
+        </section>
+        <section class="single_col">
+            <div id="membership-container">
+             <div id="left-cols-membership">
+                <h6>Learn About Our Exciting Membership Options</h6>
+                 <ul class="pCards">
+                    <li class="diamonds">A Basic Membership is completely free and gives you access to the most competitive ring games available
+in U.S. online poker today</li>
+                    <li class="hearts">Win cash and prizes in our daily auctions with the chips you win</li>
+                    <li class="speds">Upgrade to a Club Live Membership for only $24.99 per month</li>
+                </ul>
+
+              <h6>Club Live Vs. Basic Membership</h6>
+              <div class="shadow-table">
+                 <div class="top"></div>
+                    <div class="contents">
+                      <table cellspacing="2" >
+                      <thead>
+                        <tr>
+                          <th class="first">&nbsp;</th>
+                          <th class="second"><img src="{{ STATIC_URL }}www/img/club-live-logo.png" alt="" title=""></th>
+                          <th class="third">BASIC<br>MEMBERSHIP</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="odd" align="left">Signup Chip Award</td>
+                          <td class="odd" align="center"><span>1,600 Chips</span></td>
+                          <td class="odd last" align="center">200 Chips</td>
+                        </tr>
+                         <tr>
+                          <td class="even" align="left">Monthly Chip Award</td>
+                          <td class="even" align="center"><span>1,600 Chips</span></td>
+                          <td class="even last" align="center">200 Chips</td>
+                        </tr>
+                         <tr>
+                          <td class="odd" align="left">Daily Top-Up Reload</td>
+                          <td class="odd" align="center"><span>400 Chips</span></td>
+                          <td class="odd last" align="center">200 Chips</td>
+                        </tr>
+                         <tr>
+                          <td class="even" align="left">Custom Avatar</td>
+                          <td class="even" align="center"><img src="{{ STATIC_URL }}www/img/right-img.png" alt="" title=""></td>
+                          <td class="even last" align="center">&nbsp;</td>
+                        </tr>
+                         <tr>
+                          <td class="odd" align="left">HandMaker<sup>&trade;</sup> Odds Calculator</td>
+                          <td class="odd" align="center"><img src="{{ STATIC_URL }}www/img/right-img.png" alt="" title=""></td>
+                          <td class="odd last" align="center">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td class="even" align="left">Ad Free Top-Up Reload</td>
+                          <td class="even" align="center"><img src="{{ STATIC_URL }}www/img/right-img.png" alt="" title=""></td>
+                          <td class="even last" align="center">&nbsp;</td>
+                        </tr>
+                         <tr>
+                          <td class="odd no-border" align="left">Auto Chip Re-Buy at the Table</td>
+                          <td class="odd no-border" align="center"><img src="{{ STATIC_URL }}www/img/right-img.png" alt="" title=""></td>
+                          <td class="odd last no-border" align="center">&nbsp;</td>
+                        </tr>
+                        </tbody>
+
+                        </table>
+                    </div>
+
+                    <div class="bottom"></div>
+                </div>
+
+               <div id="playnow">
+                    {% if user.is_authenticated %}
+                        <a href="{% url tables-list %}"><img src="{{ STATIC_URL }}www/img/playNow_mid_button.png" alt="Play Now" title="Play Now"></a>  
+                    {% else %}
+                        <a href="{% url account_get_started %}"><img src="{{ STATIC_URL }}www/img/playNow_mid_button.png" alt="Play Now" title="Play Now"></a>  
+                    {% endif %}
+               </div> 
+
+            </div>
+             <div id="right-cols-membership">
+                    <img src="{{ STATIC_URL }}www/img/netflix_ad.png" alt="" />
+             </div>
+
+             <div id="caution">
+                <p>* No Purchase Necessary to Win. Eligibility is based on your state's current sweepstakes laws and your age (18 years or over).
+  LiveAce operates within the U.S. sweepstakes rules where legal - see Terms and Conditions for details and eligibility</p>
+             </div>
+            </div>
+
+        </section><!--single_col EOF-->
+    </div>
+
+    <div class="bottom_background"></div>
+{% endblock %}

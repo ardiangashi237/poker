@@ -1,0 +1,51 @@
+[
+    {
+        "pk": 1,
+        "model": "santiago.securityquestion",
+        "fields": {
+            "question": "What is your mother's maiden name?"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "santiago.securityquestion",
+        "fields": {
+            "question": "What is the name of your favorite childhood friend?"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "santiago.securityquestion",
+        "fields": {
+            "question": "What is the middle name of your spouse / significant other?"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "santiago.securityquestion",
+        "fields": {
+            "question": "What was the name of your elementary school?"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "santiago.securityquestion",
+        "fields": {
+            "question": "What was your high school mascot?"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "santiago.securityquestion",
+        "fields": {
+            "question": "In what city or town was your first job?"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "santiago.securityquestion",
+        "fields": {
+            "question": "What street did you live on in eighth grade?"
+        }
+    }
+]

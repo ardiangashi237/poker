@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+
+{% load url from future %}
+{% load bootstrap_tags %}
+{% load widget_tweaks %}
+
+{% block title %}Registration{% endblock %}
+
+{% block extrahead %}
+{% endblock %}
+
+{% block content %}
+    <script>
+    function post(path, parameters) {
+        var form = $('<form></form>');
+
+        form.attr("method", "post");
+        form.attr("action", path);
+
+        $.each(parameters, function(key, value) {
+            var field = $('<input></input>');
+
+            field.attr("type", "hidden");
+            field.attr("name", key);
+            field.attr("value", value);
+
+            form.append(field);
+        });
+
+        // The form needs to be a part of the document in
+        // order for us to be able to submit it.
+        $(document.body).append(form);
+        form.submit();
+    }
+    </script>
+    <script>
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = jQuery.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    </script>
+    <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : {{ facebook_app_id }}, // App ID {{ facebook_app_id }}
+            channelUrl : '', //http://ec2-67-202-51-236.compute-1.amazonaws.com/channel/', // Channel File
+            status     : true, // check login status
+            cookie     : true, // enable cookies to allow the server to access the session
+            xfbml      : true  // parse XFBML
+          });
+          // Additional initialization code here
+          FB.Event.subscribe('auth.authResponseChange', function(response) {
+            //do something here if login status changes
+          });
+        };
+        // Load the SDK Asynchronously
+        (function(d){
+           var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement('script'); js.id = id; js.async = true;
+           js.src = "//connect.facebook.net/en_US/all.js";
+           ref.parentNode.insertBefore(js, ref);
+         }(document));
+    </script>
+    <script>
+          var authenticate = function() {
+            FB.getLoginStatus(function(response) {
+                var csrftoken = getCookie('csrftoken');
+                if (response.status === 'connected') {
+                    FB.api('/me', function (response) {
+                        post('{% url "account_get_started_fb" %}', {'fb_id': response.id, 'email':response.email, 'csrfmiddlewaretoken':csrftoken});
+                    });
+                } else if (response.status === 'not_authorized') {
+                    alert('You have not authorized LiveAce to access your Facebook account!');
+                } else {
+                    FB.login(function response() {
+                        FB.api('/me', function (response) {
+                            post('{% url "account_get_started_fb" %}', {'fb_id': response.id, 'email':response.email, 'csrfmiddlewaretoken':csrftoken});
+                        });
+                    }, {scope: 'email,user_birthday,user_hometown,user_location'});
+                }
+            })
+          };
+    </script>
+    <div id="fb-root"></div>
+    <div id="register-step1" class="container">
+        <section class="top_section">
+            <h2>REGISTER</h2>
+        </section>
+        <section class="single_col">
+            <h4 class="sec-heading">REGISTRATION: STEP 1 OF 2</h4>
+            <p class="desc">Create a free LiveAce membership account. To get started, enter a valid email address and complete the Captcha below.
+If you have previously created an account, click “Sign In” above.</p>
+            <div class="registerFormStp1">
+                <form id="get_started_form" method="post" action="{% url "account_get_started" %}" class="form-horizontal">
+                    {% csrf_token %}
+                    <table class="formitems">
+                        <tr>
+                            <td width="55%">
+                                <p class="item-label"><label for="email">Enter a Vaild Email Address</label></p>
+                                <p class="item-content">{{ form.email|add_class:"email" }}</p>
+                                <p>{{ form.email.errors }}</p>
+                                <p class="item-label extra-margin"><label for="captcha">Enter Captcha</label></p>
+                                <p class="item-content">{{ form.captcha|add_class:"captcha" }}</p>
+                                <p>{{ form.captcha.errors }}</p>
+                            </td>
+                            <td width="14%"><img alt="Or" src="{{ STATIC_URL }}www/img/reg-or.png" /></td>
+                            <td >
+                                <p class="item-label"><label for="facebook">Join With Facebook</label></p>
+                                <p class="item-content"><a href="#" onclick="authenticate();"><img alt="Join Facebook" src="{{ STATIC_URL }}www/img/fb-join.png" /></a></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <p class="terms">By creating an account I represent that I am 18 years of age or older and I reside in an <a href="{% url "legal" %}" target="_new">Eligible State.</a></p>
+                                <input type="submit" value="" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                                <br/><p class="item-content">Already have an account?  <a href="{% url "account_login" %}">Sign in</a></p>
+                            </td>
+                        </tr> 
+                    </table>
+
+                    {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                </form>
+                <div class="span4">
+                    {% include "account/_signup_sidebar.html" %}
+                </div>
+            </div>
+            
+        </section><!--single_col EOF-->
+    </div>
+
+    <div class="bottom_background"></div>
+{% endblock %}

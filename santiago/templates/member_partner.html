@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block title %}Referral{% endblock %}
+{% block content %}
+
+<div id="partner_offers_page" class="container">
+        <section class="top_section">
+            <h2>PARTNER OFFERS</h2>
+            <div class="member-search">
+                <form method="post">
+                    <input class="search_input" type="text" name="search" placeholder="SEARCH MEMBERS" value="" />
+                    <input class="search_button" type="submit" value="" />
+                </form>
+            </div>   
+        </section>
+        <section class="left_col">
+            <div class="member_picture">
+                <div><!-- Player picture -->
+                    <img src="{{ STATIC_URL }}www/img/member_picture.png" alt="member" />
+                </div>
+                <a href="#"><span><!-- Play Now button --></span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{% url member_page %}"><span>MEMBER PAGE</span></a></li>
+                    <li><a href="{% url account_settings %}"><span>ACCOUNT SETTINGS</span></a></li>
+                    <li><a href="{% url member_auction %}"><span>AUCTIONS</span></a></li>
+                    <li><a href="#"><span>LEADERBOARDS</span></a></li>
+                    <li><a href="{% url member_referral %}"><span>REFER FRIENDS</span></a></li>
+                    <li class="active"><a href="#"><span>PARTNER OFFERS</span></a></li>
+                    <li><a href="#"><span>SUPPORT</span></a></li>
+                    <li id="last_nav"><a href="#"><span>LOG OUT</span></a></li>
+                </ul>
+            </nav>
+
+        </section>
+        <section class="right_col">
+            <div class="middle_div">
+                <h3 class="welcome">WELCOME, {{ user.username }}</h3>
+                <h5 class="balance">REGULAR CHIP BALANCE: <span>{{ user.userprofile.user_real_chip_balance }}</span> / LIVE CHIP BALANCE: <span>{{ user.userprofile.user_live_chip_balance }}</span></h5>
+               
+                <h6>Earn Chips by Signing Up for Our Partner Offers!</h6>
+                <ul class="payment-links">
+                    <li>
+                        <img class="amex" alt="american expres" src="{{ STATIC_URL }}www/img/american-express.png">
+                        <p class="name">American Express</p>
+                        <a href="#"><span>Earn 400 Chips</span></a>
+                    </li>
+                    <li>
+                        <img class="amazon" alt="amazon" src="{{ STATIC_URL }}www/img/amazon.png">
+                        <p class="name">Amazon.com</p>
+                        <a href="#"><span>Earn 400 Chips</span></a>
+                    </li>
+                    <li>
+                        <img class="blockbuster" alt="blockbuster video" src="{{ STATIC_URL }}www/img/blockbuster.png">
+                        <p class="name">BlockBuster Video</p>
+                        <a href="#"><span>Earn 400 Chips</span></a>
+                    </li>
+                    <li>
+                        <img class="netflix" alt="netflix" src="{{ STATIC_URL }}www/img/netflix.png">
+                        <p class="name">Netflix</p>
+                        <a href="#"><span>Earn 400 Chips</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="adSpace_160x600"><!-- ad space -->
+                <img src="{{ STATIC_URL }}www/img/member_page_adSpace_160x600.png" alt="" />
+            </div> 
+            
+        </section>
+     </div>
+     <div class="bottom_background"></div>
+{% endblock %}

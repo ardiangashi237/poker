@@ -1,0 +1,21 @@
+.jpoker_timeout_progress {
+    /* height: 100%; */
+	height:14px;
+    background-color: #ff0000;
+	border-bottom-left-radius: 4px;
+}
+.jpoker_timebank_progress {
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+}
+.jpoker_timebank_text{
+color:red;
+position:absolute;
+/*margin-right:-20px;*/
+line-height: 13px;
+font-weight: bold;
+font-family: "trebuchet MS",arial,helvetica,sans-serif;
+font-size:15px;
+}
+

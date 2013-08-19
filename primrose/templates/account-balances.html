@@ -1,0 +1,557 @@
+
+
+
+
+
+
+<div id="content-wrapper" class="page group">
+  <div id="page-wrap" class="member group">
+    <h2 class="title">Member Page</h2>
+    <form method="get" action="/user/sm" class="member-search group">
+      <p>
+        <label for="search">Search Members</label>
+        <input type="text" name="search" id="search" value="" />
+      </p>
+      <div class="main">
+        <section class="account-balances">
+          <h2>Account Balances</h2>
+<div class="account_balances">
+    <div class="cash_balance">
+    <ul class="cashbalance">
+        <li class="first">
+        <ul>
+            <li><a href="{% url tables-list %}" title="PLAY NOW!" class="green-button">PLAY NOW!</a></li>
+            <li><a href="{% url purchase-chips %}" title="BUY CHIPS" class="green-button">BUY CHIPS</a>
+            <li><a href="{% url top-up-chips %}" title="TOP UP" class="green-button">TOP UP</a>
+        </ul>
+        </li>
+        <li class="second">
+        <div class="first">
+            <ul class="second_label">
+            <li class="sl1">Regular Chip Balance</li>
+            <li class="sl2">Regular Chips In Play</li>
+            <li class="sl3">Regular Chip<br>Available Balance</li>
+            </ul>
+          </div>
+          <div class="second">
+            <ul class="second_output">
+            <li class="so1">{{ user.userprofile.user_real_chip_balance }}</li>
+            <li class="so2">{{ user.userprofile.real_chips_in_play }}</li>
+            <li class="so3">&nbsp;</li>
+            <li class="so4">{{ user.userprofile.real_chips_available }}</li>
+            <li><hr /></li>
+            </ul>
+          </div>
+        </li>
+        <li class="third">
+        <div class="first">
+            Regular Chip Bank <span class="help" original-title="Lorem Ipsum is simply dummy"></span>
+          </div>
+          <div class="second">
+            <ul class="rcb_output">
+            <li class="so1">0</li>
+            <li><hr /></li>
+            </ul>
+          </div>
+        </li>
+        <li class="forth">
+        <div class="first">CASH BALANCE</div>
+        <div class="second">$0.00</div>
+        </li>
+        <li><hr /></li>
+    </ul>
+    
+    </div>
+    <div class="cash_balance_right">
+    <ul class="cashbalance">
+        <li class="first">
+        <div class="first">
+            <ul class="second_label">
+            <li class="sl1">Live Chip Balance</li>
+            <li class="sl2">Live Chips In Play</li>
+            <li class="sl3">Live Chips In Auctions </li>
+            <li class="sl4">Live Chip<br>Available Balance</li>
+            </ul>
+          </div>
+          <div class="second">
+            <ul class="second_output">
+            <li class="so1">{{ user.userprofile.user_live_chip_balance }}</li>
+            <li class="so2">{{ user.userprofile.live_chips_in_play }}</li>
+            <li class="so3">{{ user.userprofile.live_chips_in_auction }}</li>
+            <li class="so4">{{ user.userprofile.live_chips_available }}</li>
+            </ul>
+          </div>
+        </li>
+        <li class="second"><a href="#"><img border="0" alt="" src="img/btn_redeem.png"></a></li>
+    </ul>
+    
+    </div>
+</div>        </section>
+        <section class="badges">
+          <h2>Badges</h2>
+          <table>
+            <tr>
+              <td>
+                <span class="first-cash">&nbsp;</span>
+              </td>
+              <td>
+                <span class="bad-beat">&nbsp;</span>
+              </td>
+              <td>
+                <span class="ten-thousand-plays">&nbsp;</span>
+              </td>
+              <td>
+                <span class="ten-con-weeks-play">&nbsp;</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="win-all-3-games">&nbsp;</span>
+              </td>
+              <td>
+                <span class="win-7-2">&nbsp;</span>
+              </td>
+              <td>
+                <span class="five-referrals">&nbsp;</span>
+              </td>
+              <td>
+                <span class="royal-flush">&nbsp;</span>
+              </td>
+            </tr>
+          </table>
+        </section>
+        <section class="stats">
+          <h2>Stats</h2>
+          <table>
+            <tr>
+              <td>
+                <span class="gray-text">Hands Played</span>
+              </td>
+              <td>
+                <span class="white-text">&nbsp;<!-- #c.config.format_number( la_users_stats.hands_played ,c.config.format_specifier,0)  --></span>
+              </td>
+              <td>
+                <span class="gray-text">1st Session Cash</span>
+              </td>
+              <td>
+                <span class="white-text">&nbsp;<!-- la_users_stats.first_session_cash_formatted --></span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="gray-text">Total Cash Won</span>
+              </td>
+              <td>
+                <span class="white-text">$<!-- c.config.format_number( la_users_stats.total_cash_won ,c.config.format_specifier,1)  --></span>
+              </td>
+              <td>
+                <span class="gray-text">Largest Individual Pot Won</span>
+              </td>
+              <td>
+                <span class="white-text">&nbsp;<!-- c.config.format_number( la_users_stats.largest_individual_pot_won ,c.config.format_specifier,0) --></span>
+              </td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>
+                <span class="gray-text">Largest Session Win</span>
+              </td>
+              <td>
+                <span class="white-text">&nbsp;<!-- c.config.format_number( la_users_stats.largest_session_win ,c.config.format_specifier,0) --></span>
+              </td>
+            </tr>
+          </table>
+        </section>
+        <section class="chip-history">
+          <h2>
+            Chip History <span>(2 weeks)</span>
+          </h2>
+          <table>
+            <tr>
+              <th>
+                <span class="white-text">Date</span>
+              </th>
+              <th>
+                <span class="white-text">Start RC</span>
+              </th>
+              <th>
+                <span class="white-text">+/-</span>
+              </th>
+              <th>
+                <span class="white-text">End RC</span>
+              </th>
+              <th>&nbsp;</th>
+            </tr>
+            <tr class="gray-row">
+              <td>&nbsp;<!-- [% ce.id1 %]/[% ce.id31 %]/[% ce.id2 %] --></td>
+              <td>&nbsp;<!-- c.config.format_number( ce.rc_amount_start,c.config.format_specifier,0) --></td>
+              <td>&nbsp;<!-- c.config.format_number( ce.rc_amount_delta,c.config.format_specifier,0) --></td>
+              <td>&nbsp;<!-- c.config.format_number( ce.rc_amount_end,  c.config.format_specifier,0) --></td>
+            </tr>
+            <tr>
+              <th>
+                <span class="white-text">Date</span>
+              </th>
+              <th>
+                <span class="white-text">Start LC</span>
+              </th>
+              <th>
+                <span class="white-text">+/-</span>
+              </th>
+              <th>
+                <span class="white-text">End LC</span>
+              </th>
+              <th>
+                <span class="white-text">LCs Used</span>
+              </th>
+            </tr>
+            <!-- [% la_ces.rewind %] -->
+            <tr class="gray-row">
+              <td>&nbsp;<!--[% ce.id1 %]/[% ce.id31 %]/[% ce.id2 %]--></td>
+              <td>&nbsp;<!--[% c.config.format_number( ce.lc_amount_start,  c.config.format_specifier,0)  %]--></td>
+              <td>&nbsp;<!--[% c.config.format_number( ce.lc_amount_delta,  c.config.format_specifier,0) %]--></td>
+              <td>&nbsp;<!--[% c.config.format_number( ce.lc_amount_end ,  c.config.format_specifier,0)%]--></td>
+              <!-- [% IF ce.lcs_used  %]
+                  <td>[% c.config.format_number(  ce.lcs_used,  c.config.format_specifier,0) %]</td>
+              [% ELSE  %] -->
+                <td> - </td>
+              <!-- [% END %] -->
+            </tr>
+          </table>
+        </section>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+
+<section class="left_col">
+            <div class="member_picture">
+                <div><!-- Player picture -->
+                    <img src="img/member_picture.png" alt="member" />
+                </div>
+                <a href="#"><span><!-- Play Now button --></span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#"><span>MEMBER PAGE</span></a></li>
+                    <li><a href="#"><span>ACCOUNT SETTINGS</span></a></li>
+                    <li><a href="#"><span>AUCTIONS</span></a></li>
+                    <li><a href="#"><span>LEADERBOARDS</span></a></li>
+                    <li><a href="#"><span>REFER FRIENDS</span></a></li>
+                    <li><a href="#"><span>PARTNER OFFERS</span></a></li>
+                    <li><a href="#"><span>SUPPORT</span></a></li>
+                    <li id="last_nav"><a href="#"><span>LOG OUT</span></a></li>
+                </ul>
+            </nav>
+            <div class="adSpace_160x600"><!-- ad space -->
+                <img src="img/member_page_adSpace_160x600.png" alt="" />
+            </div>
+        </section>
+        <section class="right_col">
+            <div class="right_div">
+                <h3 class="welcome">WELCOME, BESSIGNEW</h3>
+                <h5 class="balance">REGULAR CHIP BALANCE: <span>1,982</span> / LIVE CHIP BALANCE: <span>0</span></h5>
+                <h4 class="sec-heading">ACCOUNT BALANCES</h4>
+                <div class="account_balances">
+                    <div class="cash_balance">
+                        <ul class="cashbalance">
+                            <li class="first">
+                                <div class="first"><a href="#"><img border="0" src="img/btn_purchase_chips.png" alt="Purchase Chips"></a></div>
+                                <div class="second"><a href="#"><img border="0" src="img/btn_top_up.png" alt="Top Up"></a></div>
+                            </li>
+                            <li class="second">
+                                <div class="first">
+                                    <ul class="second_label">
+                                        <li class="sl1">Regular Chip Balance</li>
+                                        <li class="sl2">Regular Chips In Play</li>
+                                        <li class="sl3">Regular Chip<br>Available Balance</li>
+                                    </ul>
+                                 </div>
+                                 <div class="second">
+                                    <ul class="second_output">
+                                        <li class="so1">1,982</li>
+                                        <li class="so2">(0)</li>
+                                        <li class="so3">&nbsp;</li>
+                                        <li class="so4">0</li>
+                                    </ul>
+                                  </div>
+                            </li>
+                            <li class="third">
+                                <div class="first">
+                                    Regular Chip Bank <span title="Lorem Ipsum is simply dummy" class="help"></span>
+                                 </div>
+                                 <div class="second">
+                                    <ul class="rcb_output">
+                                        <li class="so1">3,758</li>
+                                    </ul>
+                                  </div>
+                            </li>
+                            <li class="forth">
+                                <div class="first">CASH BALANCE</div>
+                                <div class="second">$0.00</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cash_balance_right">
+                        <ul class="cashbalance">
+                            <li class="first">
+                                <div class="first">
+                                    <ul class="second_label">
+                                        <li class="sl1">Live Chip Balance</li>
+                                        <li class="sl2">Live Chips In Play</li>
+                                        <li class="sl3">Live Chips In Auctions </li>
+                                        <li class="sl4">Live Chip<br>Available Balance</li>
+                                    </ul>
+                                 </div>
+                                 <div class="second">
+                                    <ul class="second_output">
+                                        <li class="so1">1,982</li>
+                                        <li class="so2">(0)</li>
+                                        <li class="so5">(0)</li>
+                                        <li class="so3">&nbsp;</li>
+                                        <li class="so4">0</li>
+                                    </ul>
+                                  </div>
+                            </li>
+                            <li class="second"><a href="#"><img border="0" src="img/btn_redeem.png" alt=""></a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+             
+            <div class="badges_container">
+                <h4 class="sec-heading">BADGES</h4>
+                <ul class="badges_list">
+                    <li><img width="125" src="img/first_cash_win.png" alt=""></li>
+                    <li><img width="125" src="img/five_referrals.png" alt=""></li>
+                    <li><img width="125" src="img/hands_played.png" alt=""></li>
+                    <li><img width="125" src="img/consecutive_weeks_of_play.png" alt=""></li>
+                    <li><img width="125" src="img/win_inall_3games.png" alt=""></li>
+                    <li><img width="125" src="img/win_a_hand.png" alt=""></li>
+                    <li><img width="125" src="img/bad_beat.png" alt=""></li>
+                    <li><img width="125" src="img/royal_flush.png" alt=""></li>
+                </ul>
+            </div>
+            <div class="stats_container">
+                <h4 class="sec-heading">STATS</h4>
+                <div class="first">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tbl_stat_left">
+                      <tr>
+                        <td class="label">Hands Played</td>
+                        <td class="output">13</td>
+                      </tr>
+                      <tr>
+                        <td class="label">Total Cash Won</td>
+                        <td class="output">$0.00</td>
+                      </tr>
+                    </table>
+                </div>
+
+                <div class="second">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tbl_stat_right">
+                      <tr>
+                        <td class="label">Largest Individual Pot Won</td>
+                        <td class="output">0</td>
+                      </tr>
+                      <tr>
+                        <td class="label">Largest Session Win <span title="Lorem Ipsum is simply dummy" class="help"></span></td>
+                        <td class="output">0</td>
+                      </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bhistory_container">
+                <h4 class="sec-heading">BALANCE HISTORY</h4>
+                <div class="regular_chip_history">
+                <h2>REGULAR CHIP HISTORY</h2>
+                <table width="100%" cellspacing="1" cellpadding="3" class="tbl_bhistory">
+                  <thead>
+                    <tr>
+                      <th class="first">DATE</th>
+                      <th class="second">TYPE</th>
+                      <th class="third">DESCRIPTION</th>
+                      <th class="forth">+/-</th>
+                      <th class="fifth">BALANCE</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="odd">
+                      <td>09/05/12</td>
+                      <td>Friend Referral</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="even">
+                      <td>09/05/12</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">- 500</td>
+                      <td class="textright">900</td>
+                    </tr>
+                    <tr class="odd">
+                      <td>09/05/12</td>
+                      <td>Affiliate Offer</td>
+                      <td>MasterCard Offer</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="even">
+                      <td>09/05/12</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="odd">
+                      <td>09/05/12</td>
+                      <td>Daily Top-Up Reload</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="even">
+                      <td>09/05/12</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="odd">
+                      <td>09/05/12</td>
+                      <td>Monthly Award</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="even">
+                      <td>09/05/12</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="odd">
+                      <td>09/05/12</td>
+                      <td>Gameplay</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="even">
+                      <td class="borderbottom">09/05/12</td>
+                      <td class="borderbottom">&nbsp;</td>
+                      <td class="borderbottom">&nbsp;</td>
+                      <td class="textright borderbottom">&nbsp;</td>
+                      <td class="textright borderbottom">&nbsp;</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                <div class="live_chip_history">
+                    <h2>LIVE CHIP HISTORY</h2>
+                    <table width="100%" cellspacing="1" cellpadding="3" class="tbl_bhistory">
+                      <thead>
+                        <tr>
+                          <th class="first">DATE</th>
+                          <th class="second">TYPE</th>
+                          <th class="third">DESCRIPTION</th>
+                          <th class="forth">+/-</th>
+                          <th class="fifth">BALANCE</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="odd">
+                          <td>09/05/12</td>
+                          <td>Friend Referral</td>
+                          <td>&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                        </tr>
+                        <tr class="even">
+                          <td>09/05/12</td>
+                          <td>&nbsp;</td>
+                          <td>MasterCard Offer</td>
+                          <td class="textright">+500</td>
+                          <td class="textright">900</td>
+                        </tr>
+                        <tr class="odd">
+                          <td>09/05/12</td>
+                          <td>Affiliate Offer</td>
+                          <td>&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                        </tr>
+                        <tr class="even">
+                          <td>09/05/12</td>
+                          <td>&nbsp;</td>
+                          <td>MasterCard Offer</td>
+                          <td class="textright">&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                        </tr>
+                        <tr class="odd">
+                          <td class="borderbottom">09/05/12</td>
+                          <td class="borderbottom">Daily Top-Up Reload</td>
+                          <td class="borderbottom">&nbsp;</td>
+                          <td class="textright borderbottom">&nbsp;</td>
+                          <td class="textright borderbottom">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+                <div class="cash_chip_history">
+                    <h2>CASH BALANCE HISTORY</h2>
+                    <table width="100%" cellspacing="1" cellpadding="3" class="tbl_bhistory">
+                      <thead>
+                        <tr>
+                          <th class="first">DATE</th>
+                          <th class="second">DESCRIPTION</th>
+                          <th class="third">+/-</th>
+                          <th class="">BALANCE</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="odd">
+                          <td>09/05/12</td>
+                          <td>&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                        </tr>
+                        <tr class="even">
+                          <td>09/05/12</td>
+                          <td>&nbsp;</td>
+                          <td class="textright">+500</td>
+                          <td class="textright">900</td>
+                        </tr>
+                        <tr class="odd">
+                          <td>09/05/12</td>
+                          <td>&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                        </tr>
+                        <tr class="even">
+                          <td>09/05/12</td>
+                          <td>&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                        </tr>
+                        <tr class="odd">
+                          <td class="borderbottom">09/05/12</td>
+                          <td class="borderbottom">&nbsp;</td>
+                          <td class="textright borderbottom">&nbsp;</td>
+                          <td class="textright borderbottom">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+     </div>
+     <div class="bottom_background"></div>

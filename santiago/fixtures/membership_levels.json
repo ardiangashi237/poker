@@ -1,0 +1,32 @@
+[
+    {
+        "pk": 1,
+        "model": "santiago.membershiplevel",
+        "fields": {
+            "allow_chip_purchases": true,
+            "daily_top_up_threshold": 200,
+            "name": "Basic Freemium",
+            "ad_required_for_top_up": true
+        }
+    },
+    {
+        "pk": 2,
+        "model": "santiago.membershiplevel",
+        "fields": {
+            "allow_chip_purchases": true,
+            "daily_top_up_threshold": 400,
+            "name": "Club Live",
+            "ad_required_for_top_up": false
+        }
+    },
+    {
+        "pk": 3,
+        "model": "santiago.membershiplevel",
+        "fields": {
+            "allow_chip_purchases": false,
+            "daily_top_up_threshold": 400,
+            "name": "AMOE",
+            "ad_required_for_top_up": true
+        }
+    }
+]

@@ -1,0 +1,72 @@
+[
+    {
+        "pk": 1,
+        "model": "faq.faqcategory",
+        "fields": {
+            "slug": "basics",
+            "sequence": 1,
+            "name": "LIVE ACE BASICS",
+            "title": "LIVE ACE BASICS FAQs"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "faq.faqcategory",
+        "fields": {
+            "slug": "gameplay",
+            "sequence": 2,
+            "name": "GAMEPLAY",
+            "title": "GAMEPLAY FAQs"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "faq.faqcategory",
+        "fields": {
+            "slug": "membership",
+            "sequence": 3,
+            "name": "MEMBERSHIP",
+            "title": "MEMBERSHIP FAQs"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "faq.faqcategory",
+        "fields": {
+            "slug": "account",
+            "sequence": 4,
+            "name": "ACCOUNT",
+            "title": "ACCOUNT FAQs"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "faq.faqcategory",
+        "fields": {
+            "slug": "auction",
+            "sequence": 5,
+            "name": "AUCTION",
+            "title": "AUCTION FAQs"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "faq.faqcategory",
+        "fields": {
+            "slug": "referral",
+            "sequence": 6,
+            "name": "FRIEND REFERRAL",
+            "title": "FRIEND REFERRAL FAQs"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "faq.faqcategory",
+        "fields": {
+            "slug": "affiliate",
+            "sequence": 7,
+            "name": "AFFILIATE OFFER",
+            "title": "AFFILIATE OFFER FAQs"
+        }
+    }
+]

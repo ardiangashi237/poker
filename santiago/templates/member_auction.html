@@ -1,0 +1,162 @@
+{% extends "layout.html" %}
+{% block title %}Auction{% endblock %}
+
+{% block content %}
+<div id="auctions_page" class="container">
+        <section class="top_section">
+            <h2>AUCTIONS</h2>
+            <div class="member-search">
+                <form method="post">
+                    <input class="search_input" type="text" name="search" placeholder="SEARCH MEMBERS" value="" />
+                    <input class="search_button" type="submit" value="" />
+                </form>
+            </div>
+        </section>
+        <section class="left_col">
+            <div class="member_picture">
+                <div><!-- Player picture -->
+                    <img src="{{ STATIC_URL }}www/img/member_picture.png" alt="member" />
+                </div>
+                <a href="#"><span><!-- Play Now button --></span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="{% url member_page %}"><span>MEMBER PAGE</span></a></li>
+                    <li><a href="{% url account_settings %}"><span>ACCOUNT SETTINGS</span></a></li>
+                    <li class="active"><a href="#"><span>AUCTIONS</span></a></li>
+                    <li><a href="#"><span>LEADERBOARDS</span></a></li>
+                    <li><a href="{% url member_referral %}"><span>REFER FRIENDS</span></a></li>
+                    <li><a href="{% url member_partner %}"><span>PARTNER OFFERS</span></a></li>
+                    <li><a href="#"><span>SUPPORT</span></a></li>
+                    <li id="last_nav"><a href="#"><span>LOG OUT</span></a></li>
+                </ul>
+            </nav>
+            <div class="adSpace_160x600"><!-- ad space -->
+                <img src="{{ STATIC_URL }}www/img/member_page_adSpace_160x600.png" alt="" />
+            </div>
+        </section>
+        <section class="right_col">
+            <div class="right_div">
+                <h3 class="welcome">WELCOME, {{ user.username }}</h3>
+                <h5 class="balance">REGULAR CHIP BALANCE: <span>{{ user.userprofile.user_real_chip_balance }}</span>/LIVE CHIP BALANCE: <span>{{ user.userprofile.user_live_chip_balance }}</span></h5>
+                <h4 class="sec-heading">LIVE AUCTIONS</h4>
+                <form id="bid-form">
+                    <table cellspacing="2" >
+                      <thead>
+                        <tr>
+                          <th class="first">END DATE</th>
+                          <th class="second">TIME LEFT</th>
+                          <th class="third">AUCTION AMOUNT</th>
+                          <th class="forth">DOLLAR<br>BID<span title="Lorem Ipsum is simply dummy" class="help"></span></th>
+                          <th class="forth2">LIVE<br> CHIP BID<span title="Lorem Ipsum is simply dummy" class="help"></span></th>
+                          <th class="fifth">BID RATE<span title="Lorem Ipsum is simply dummy" class="help"></span></th>
+                          <th class="sixth">&nbsp;</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="end-date">8/31/12 5pm EST</td>
+                          <td class="life-time">2d 8h 35m</td>
+                          <td class="auction-amount">$1,000.00</td>
+                          <td class="doller-bid"><input name="doller-bid" type="text" value="$1,000" /></td>
+                          <td class="doller-bid-2"><input name="doller-bid-2" type="text" value="1,000" /></td>
+                          <td class="bid-rate">20 LC / $</td>
+                          <td><a href="#"><img src="{{ STATIC_URL }}www/img/auction-update-btn.png" alt="" title=""></a></td>
+                        </tr>
+                        <tr>
+                        <td class="end-date">9/1/12 5pm EST</td>
+                          <td class="life-time">2d 8h 35m</td>
+                          <td class="auction-amount">$1,000.00</td>
+                          <td class="doller-bid"><input type="text" /></td>
+                          <td class="doller-bid-2"><input type="text" /></td>
+                          <td class="bid-rate"></td>
+                          <td><a href="#"><img src="{{ STATIC_URL }}www/img/auction-bid-btn.png" alt="" title=""></a></td>
+                        </tr>
+                         <tr>
+                          <td class="end-date">9/2/12 5pm EST</td>
+                          <td class="life-time">2d 8h 35m</td>
+                          <td class="auction-amount">$1,000.00</td>
+                          <td class="doller-bid"><input type="text" /></td>
+                          <td class="doller-bid-2"><input type="text" /></td>
+                          <td class="bid-rate"></td>
+                          <td><a href="#"><img src="{{ STATIC_URL }}www/img/auction-bid-btn.png" alt="" title=""></a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </form>
+            </div>
+             
+            <div class="upcomming_container">
+                <h4 class="sec-heading">UPCOMING AUCTIONS</h4>
+                <table cellpadding="2">
+                  <thead>
+                    <tr>
+                      <th class="first">START DATE</th>
+                      <th class="first">END DATE</th>
+                      <th class="third">AUCTION AMOUNT</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="end-date" >9/5/12 5pm EST</td>
+                      <td class="end-date">9/12/12 5pm EST</td>
+                      <td class="auction-amount">$1,000.00</td>
+                    </tr>
+                    <tr>
+                      <td class="end-date">9/6/12 5pm EST</td>
+                      <td class="end-date">9/13/12 5pm EST</td>
+                      <td class="auction-amount">$1,000.00</td>
+                     </tr>
+                     <tr>
+                      <td class="end-date">9/7/12 5pm EST</td>
+                      <td class="end-date">9/14/12 5pm EST</td>
+                      <td class="auction-amount">$1,000.00</td>
+                     </tr>
+                  </tbody>
+                </table>
+            </div>
+            <div class="past_auction">
+                <h4 class="sec-heading">PAST AUCTIONS</h4>
+                <table cellpadding="2">
+                  <thead>
+                    <tr>
+                      <th class="first">END DATE</th>
+                      <th class="third">AUCTION AMOUNT</th>
+                      <th class="fifth">LOWEST<br>ACCEPTED<br>BID RATE</th>
+                      <th class="seventh">BIDS <br>RECEIVED</th>
+                      <th class="seventh">NUMBER<br>OF WINNERS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="end-date">8/26/12 5pm EST</td>
+                      <td class="auction-amount">$1,000.00</td>
+                      <td class="bid-rate">20LC/$</td>
+                      <td class="bid-recive">1,048</td>
+                      <td class="bid-recive">10</td>
+                    </tr>
+                    <tr>
+                      <td class="end-date">8/25/12 5pm EST</td>
+                      <td class="auction-amount">$1,000.00</td>
+                      <td class="bid-rate">20LC/$</td>
+                      <td class="bid-recive">1,048</td>
+                      <td class="bid-recive">10</td>
+                     </tr>
+                     <tr>
+                      <td class="end-date">8/24/12 5pm EST</td>
+                     <td class="auction-amount">$1,000.00</td>
+                      <td class="bid-rate">20LC/$</td>
+                      <td class="bid-recive">1,048</td>
+                      <td class="bid-recive">10</td>
+                     </tr>
+                  </tbody>
+                </table>
+                
+            </div>
+        </section>
+     </div>
+     <div class="bottom_background"></div>
+    <script>
+        $('#auctions_page span.help').tipsy({gravity: 'w'});
+    </script>
+{% endblock %}

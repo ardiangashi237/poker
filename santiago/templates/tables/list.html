@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block title %}Game Lobby{% endblock %}
+{% block content %}
+<script type="text/javascript">
+  $(function(){
+    $("#filter").change(function() {
+      if($(this).val()) {
+        window.open('/tables/' + $(this).val(), '_self');
+        /* $("#filterform").submit(); */
+      }
+    });
+  });
+</script>
+
+<div id="lobby_page" class="container">
+  <div id="page-wrap" >
+        <section class="top_section">
+            <h2>Game Lobby</h2>
+        </section>
+        <section class="left_col">
+
+    <div class="main">
+      <form  id="filterform" action="#" method="get">
+        <label>Filter By</label>
+        <select name="filter" id="filter">
+          {% for filter_key, filter_name in filter_hash.iteritems %}
+          <option
+            {% if filter_key == selected_filter %}
+              selected="selected"
+            {% endif %}
+            value="{{ filter_key }}">{{ filter_name }}</option>
+          {% endfor %}
+        </select>
+      </form>
+      <div class="shadow-table">
+            <div class="top"></div>
+            <div class="contents">
+              <table id="tablesorter" cellspacing="2">
+              <thead>
+                <tr>
+                  <th class="first" style="text-align:left;padding-left:10px;">Table <span class="sort-arrows"></span></th>
+                  <th class="second arrow-sort">Type <span class="sort-arrows"></span></th>
+                  <th class="second">Blinds <span class="sort-arrows"></span></th>
+                  <th class="second">Players <span class="sort-arrows"></span></th>
+                  <th class="third">Average<br/>Pot <span class="sort-arrows"></span></th><td>
+                </td></tr>
+              </thead>
+              <tbody>
+                {% for table in result_tables %}
+                    <tr class="gray-row">
+                        <td><a class="table-link popup-window" rel="table"  href="/tables/view/{{ table.serial }}">{{ table.name }}</a></td>
+                        <td align="center">{{ table.variant_name }}</td>
+                        <td align="center">{{ table.blinds }}</td>
+                        <td align="center">{{ table.players }}</td>
+                        <td align="center">{{ table.average_pot }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+                </table>
+            </div>
+            <div class="bottom"></div>
+        </div>
+    </div>
+    </section>
+  </div>
+</div>
+{% endblock %}
+

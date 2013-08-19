@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% load url from future %}
+{% load i18n %}
+{% load bootstrap_tags %}
+
+{% block title %}{% trans "Contact Us" %}{% endblock %}
+
+{% block content %}
+    <div id="contactus" class="container">
+        <section class="top_section">
+            <h2>CONTACT US</h2>
+        </section>
+        <section class="left_col">
+            <h4 class="sec-heading">Contact LiveAce Today!</h4>
+            <p class="desc">LiveAce is committed to providing excellent customer service. If you can't find what you're looking for in our <a href="{% url "faq-general" %}">FAQ</a>, please email us using the form below. We make every effort to respond to your question or request within 48 hours.</p>
+            <div class="contactForm">
+                <form>
+                    <table class="formitems">
+                        <tr>
+                            <td width="47%">
+                                <p class="item-label"><label for="firstname">Full Name</label><span>(required)</span></p>
+                                <p class="item-content"><input id="full_name" name="full_name" type="text" tabindex="1" /></p>
+                                <p class="item-label"><label for="username">Username</label></p>
+                                <p class="item-content"><input id="username" name="username" type="text"  tabindex="2"/></p>
+                                <p class="item-label"><label for="emailaddress">Email Address</label><span>(required)</span></p>
+                                <p class="item-content"><input id="email" name="email" type="text"  tabindex="3"/></p>
+                            </td>
+                            <td width="53%">
+                                <p class="item-label topic"><label for="topic">Select a Topic</label><span>(required)</span></p>
+                                <p class="item-content topic">
+                                    <input name="topic" checked id="topic" type="radio" class="cfe-styled" value="Registration" tabindex="4"> 
+                                    <span class="radioText">Registration</span></p>
+                                <p class="item-content topic">
+                                    <input name="topic" id="topic2" type="radio" class="cfe-styled" value="Membership Options" tabindex="4"> 
+                                    <span class="radioText">Membership Options</span>
+                                </p>
+                                <p class="item-content topic">
+                                    <input name="topic" id="topic3" type="radio" class="cfe-styled" value="Game Play / Technical Issues" tabindex="6"> 
+                                    <span class="radioText">Game Play / Technical Issues</span>
+                                </p>
+                                <p class="item-content topic">
+                                    <input name="topic" id="topic4" type="radio" class="cfe-styled" value="Auctions / Prize Eligibility" tabindex="7"> 
+                                    <span class="radioText">Auctions / Prize Eligibility</span>
+                                </p>
+                                <p class="item-content topic">
+                                    <input name="topic" id="topic5" type="radio" class="cfe-styled" value="Friend Referral" tabindex="8"> 
+                                    <span class="radioText">Friend Referral</span>
+                                </p>
+                                <p class="item-content topic">
+                                    <input name="topic" id="topic6" type="radio" class="cfe-styled" value="Partner Offers" tabindex="9"> 
+                                    <span class="radioText">Partner Offers</span>
+                                </p>
+                                <p class="item-content topic">
+                                    <input name="topic" id="topic7" type="radio" class="cfe-styled" value="General Support" tabindex="10"> 
+                                    <span class="radioText">General Support</span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <p class="item-label"><label for="question">Question</label><span>(required)</span></p>
+                                <p class="item-content textarea"><textarea id="question" name="question" tabindex="11" cols="" rows=""></textarea></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                  <tr>
+                                    <td class="" colspan="2">
+                                        <p class="item-label"><label for="question">Enter Captcha </label></p>
+                                    </td>
+                                  </tr>
+                                  <tr>
+                                    <td width="118">
+                                        <p class="item-content"><img src="img/captcha.png" width="101" /></p>
+                                    </td>
+                                    <td>
+                                        <p class="item-content"><input id="captcha" name="captcha" type="text"  tabindex="12"/></p>
+                                    </td>
+                                  </tr>
+                                </table>                                
+                            </td>
+                            <td valign="middle"><p class="item-submit"><input class="submit" type="image" src="{{ STATIC_URL }}www/img/btn_contact_submit.png" name="submit" tabindex="13" /></p></td>
+                        </tr>
+                        
+                     </table>
+                </form>
+            </div>
+            
+        </section><!--single_col EOF-->
+    </div>
+    <div class="bottom_background"></div>
+{% endblock %}
+

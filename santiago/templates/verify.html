@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% load url from future %}
+{% load bootstrap_tags %}
+
+{% block content %}
+    <div id="register-step1" class="container">
+        <section class="top_section">
+            <h2>REGISTER</h2>
+        </section>
+        <section class="single_col">
+            <h4 class="sec-heading">REGISTRATION: EMAIL CONFIRMATION</h4>
+            <p>
+                You must validate your email in order to access our site.
+                An email message has been sent to the address you provided.
+            </p>
+            <p>
+                If you do not see a validation email from LiveAce, please check
+                your junk or spam folder.
+            </p>
+            <p>
+                If you do not receive an email, please <a href="mailto:admin@liveace.com" style="color:#00E;text-decoration:underline;">contact us</a> using the
+                email on your account and we will be able to assist you with this process.
+            </p>
+        </section>
+    </div>
+{% endblock %}
+

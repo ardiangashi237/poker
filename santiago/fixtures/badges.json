@@ -1,0 +1,101 @@
+[
+    {
+        "pk": 1,
+        "model": "santiago.badge",
+        "fields": {
+            "timestamp": null,
+            "earned_filename": "2.jpg",
+            "unearned_filename": "2_grey.jpg",
+            "alt_text": "Bad Beat",
+            "sequence": 7
+        }
+    },
+    {
+        "pk": 2,
+        "model": "santiago.badge",
+        "fields": {
+            "timestamp": null,
+            "earned_filename": "3.jpg",
+            "unearned_filename": "3_grey.jpg",
+            "alt_text": "Hands Played",
+            "sequence": 3
+        }
+    },
+    {
+        "pk": 3,
+        "model": "santiago.badge",
+        "fields": {
+            "timestamp": null,
+            "earned_filename": "4-1.jpg",
+            "unearned_filename": "4-1_grey.jpg",
+            "alt_text": "Weeks of Play",
+            "sequence": 4
+        }
+    },
+    {
+        "pk": 4,
+        "model": "santiago.badge",
+        "fields": {
+            "timestamp": null,
+            "earned_filename": "5.jpg",
+            "unearned_filename": "5_grey.jpg",
+            "alt_text": "Win in All",
+            "sequence": 5
+        }
+    },
+    {
+        "pk": 5,
+        "model": "santiago.badge",
+        "fields": {
+            "timestamp": null,
+            "earned_filename": "6.jpg",
+            "unearned_filename": "6_grey.jpg",
+            "alt_text": "Win a Hand",
+            "sequence": 6
+        }
+    },
+    {
+        "pk": 6,
+        "model": "santiago.badge",
+        "fields": {
+            "timestamp": null,
+            "earned_filename": "7.jpg",
+            "unearned_filename": "7_grey.jpg",
+            "alt_text": "Referrals",
+            "sequence": 2
+        }
+    },
+    {
+        "pk": 7,
+        "model": "santiago.badge",
+        "fields": {
+            "timestamp": null,
+            "earned_filename": "first_cash_win.jpg",
+            "unearned_filename": "first_cash_win_grey.jpg",
+            "alt_text": "First Cash Win",
+            "sequence": 1
+        }
+    },
+    {
+        "pk": 8,
+        "model": "santiago.badge",
+        "fields": {
+            "timestamp": null,
+            "earned_filename": "first_prize_win.jpg",
+            "unearned_filename": "first_prize_win_grey.jpg",
+            "alt_text": "First Prize Win",
+            "sequence": 9
+        }
+    },
+    {
+        "pk": 9,
+        "model": "santiago.badge",
+        "fields": {
+            "timestamp": null,
+            "earned_filename": "royal_flush2.jpg",
+            "unearned_filename": "royal_flush2_grey.jpg",
+            "alt_text": "Royal Flush",
+            "sequence": 8
+        }
+    }
+]

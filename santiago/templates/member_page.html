@@ -1,0 +1,353 @@
+{% extends "layout.html" %}
+{% block title %}Member{% endblock %}
+{% block content %}
+
+<div id="account_balances" class="container">
+        <section class="top_section">
+            <h2>MEMBER PAGE</h2>
+            <div class="member-search">
+                <form method="post">
+                    <input class="search_input" type="text" name="search" placeholder="SEARCH MEMBERS" value="" />
+                    <input class="search_button" type="submit" value="" />
+                </form>
+            </div>   
+            </section>
+            <section class="left_col">
+            <div class="member_picture">
+                <div><!-- Player picture -->
+                    <img src="{{ STATIC_URL }}www/img/member_picture.png" alt="member" />
+                </div>
+                <a target="_new" href="{% url tables-list %}"><span><!-- Play Now button --></span></a>
+            </div>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#"><span>MEMBER PAGE</span></a></li>
+                    <li><a href="{% url account_settings %}"><span>ACCOUNT SETTINGS</span></a></li>
+                    <li><a href="{% url member_auction %}"><span>AUCTIONS</span></a></li>
+                    <li><a href="#"><span>LEADERBOARDS</span></a></li>
+                    <li><a href="{% url member_referral %}"><span>REFER FRIENDS</span></a></li>
+                    <li><a href="{% url member_partner %}"><span>PARTNER OFFERS</span></a></li>
+                    <li><a href="#"><span>SUPPORT</span></a></li>
+                    <li id="last_nav"><a href="#"><span>LOG OUT</span></a></li>
+                </ul>
+            </nav>
+            <div class="adSpace_160x600"><!-- ad space -->
+                <img src="{{ STATIC_URL }}www/img/member_page_adSpace_160x600.png" alt="" />
+            </div>
+        </section>
+        <section class="right_col">
+            <div class="right_div">
+                <h3 class="welcome">WELCOME, {{ user.username }}</h3>
+                <h5 class="balance">REGULAR CHIP BALANCE: <span>{{ user.userprofile.user_real_chip_balance }}</span> / LIVE CHIP BALANCE: <span>{{ user.userprofile.user_live_chip_balance }}</span></h5>
+      {% if errors %}
+      <div class="messages messages-error">
+        {% for error in errors %}
+        <div class="message message-error">{{ error }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+     {% if messages %}
+      <div class="messages messages-notify">
+        {% for msg in messages %}
+        <div class="message message-notify">{{ msg }}</div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+                <h4 class="sec-heading">ACCOUNT BALANCES</h4>
+                <div class="account_balances">
+                    <div class="cash_balance">
+                        <ul class="cashbalance">
+                            <li class="first">
+                                <div class="first"><a href="{% url purchase-chips %}"><img border="0" src="{{ STATIC_URL }}www/img/btn_purchase_chips.png" alt="Purchase Chips"></a></div>
+                                <div class="second"><a href="{% url top-up-chips %}"><img border="0" src="{{ STATIC_URL }}www/img/btn_top_up.png" alt="Top Up"></a></div>
+                            </li>
+                            <li class="second">
+                                <div class="first">
+                                    <ul class="second_label">
+                                        <li class="sl1">Regular Chip Balance</li>
+                                        <li class="sl2">Regular Chips In Play</li>
+                                        <li class="sl3">Regular Chip<br>Available Balance</li>
+                                    </ul>
+                                 </div>
+                                 <div class="second">
+                                    <ul class="second_output">
+                                        <li class="so1">{{ user.userprofile.user_real_chip_balance }}</li>
+                                        <li class="so2">{{ user.userprofile.real_chips_in_play }}</li>
+                                        <li class="so3">&nbsp;</li>
+                                        <li class="so4">{{ user.userprofile.real_chips_available }}</li>
+                                    </ul>
+                                  </div>
+                            </li>
+                            <li class="third">
+                                <div class="first">
+                                    Regular Chip Bank <span title="Lorem Ipsum is simply dummy" class="help"></span>
+                                 </div>
+                                 <div class="second">
+                                    <ul class="rcb_output">
+                                        <li class="so1">{{ user.userchipcount.bank_chips }}</li>
+                                    </ul>
+                                  </div>
+                            </li>
+                            <li class="forth">
+                                <div class="first">CASH BALANCE</div>
+                                <div class="second">$0.00</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cash_balance_right">
+                        <ul class="cashbalance">
+                            <li class="first">
+                                <div class="first">
+                                    <ul class="second_label">
+                                        <li class="sl1">Live Chip Balance</li>
+                                        <li class="sl2">Live Chips In Play</li>
+                                        <li class="sl3">Live Chips In Auctions </li>
+                                        <li class="sl4">Live Chip<br>Available Balance</li>
+                                    </ul>
+                                 </div>
+                                 <div class="second">
+                                    <ul class="second_output">
+                                        <li class="so1">{{ user.userprofile.user_live_chip_balance }}</li>
+                                        <li class="so2">{{ user.userprofile.live_chips_in_play }}</li>
+                                        <li class="so5">{{ user.userprofile.live_chips_in_auction }}</li>
+                                        <li class="so3"></li>
+                                        <li class="so4">{{ user.userprofile.live_chips_available }}</li>
+                                    </ul>
+                                  </div>
+                            </li>
+                            <li class="second"><a href="#"><img border="0" src="{{STATIC_URL }}www/img/btn_redeem.png" alt=""></a></li>
+                        </ul>
+                        
+                    </div>
+                </div>
+            </div>
+             
+            <div class="badges_container">
+                <h4 class="sec-heading">BADGES</h4>
+                <ul class="badges_list">
+                    {% for badge in badges %}
+                        <li><img src="{{ STATIC_URL }}www/img/badges/{{ badge.unearned_filename }}" alt="{{ badge.alt_text }}"></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="stats_container">
+                <h4 class="sec-heading">STATS</h4>
+                <div class="first">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tbl_stat_left">
+                      <tr>
+                        <td class="label">Hands Played</td>
+                        <td class="output">13</td>
+                      </tr>
+                      <tr>
+                        <td class="label">Total Cash Won</td>
+                        <td class="output">$0.00</td>
+                      </tr>
+                    </table>
+                </div>
+
+                <div class="second">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="tbl_stat_right">
+                      <tr>
+                        <td class="label">Largest Individual Pot Won</td>
+                        <td class="output">0</td>
+                      </tr>
+                      <tr>
+                        <td class="label">Largest Session Win <span title="Lorem Ipsum is simply dummy" class="help"></span></td>
+                        <td class="output">0</td>
+                      </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="bhistory_container">
+                <h4 class="sec-heading">BALANCE HISTORY</h4>
+                <div class="regular_chip_history">
+                <h2>REGULAR CHIP HISTORY</h2>
+                <table width="100%" cellspacing="1" cellpadding="3" class="tbl_bhistory">
+                  <thead>
+                    <tr>
+                      <th class="first">DATE</th>
+                      <th class="second">TYPE</th>
+                      <th class="third">DESCRIPTION</th>
+                      <th class="forth">+/-</th>
+                      <th class="fifth">BALANCE</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="odd">
+                      <td>09/05/12</td>
+                      <td>Friend Referral</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="even">
+                      <td>09/05/12</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">- 500</td>
+                      <td class="textright">900</td>
+                    </tr>
+                    <tr class="odd">
+                      <td>09/05/12</td>
+                      <td>Affiliate Offer</td>
+                      <td>MasterCard Offer</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="even">
+                      <td>09/05/12</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="odd">
+                      <td>09/05/12</td>
+                      <td>Daily Top-Up Reload</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="even">
+                      <td>09/05/12</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="odd">
+                      <td>09/05/12</td>
+                      <td>Monthly Award</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="even">
+                      <td>09/05/12</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="odd">
+                      <td>09/05/12</td>
+                      <td>Gameplay</td>
+                      <td>&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                      <td class="textright">&nbsp;</td>
+                    </tr>
+                    <tr class="even">
+                      <td class="borderbottom">09/05/12</td>
+                      <td class="borderbottom">&nbsp;</td>
+                      <td class="borderbottom">&nbsp;</td>
+                      <td class="textright borderbottom">&nbsp;</td>
+                      <td class="textright borderbottom">&nbsp;</td>
+                    </tr>
+                  </tbody>
+                </table>
+                </div>
+                <div class="live_chip_history">
+                    <h2>LIVE CHIP HISTORY</h2>
+                    <table width="100%" cellspacing="1" cellpadding="3" class="tbl_bhistory">
+                      <thead>
+                        <tr>
+                          <th class="first">DATE</th>
+                          <th class="second">TYPE</th>
+                          <th class="third">DESCRIPTION</th>
+                          <th class="forth">+/-</th>
+                          <th class="fifth">BALANCE</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="odd">
+                          <td>09/05/12</td>
+                          <td>Friend Referral</td>
+                          <td>&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                        </tr>
+                        <tr class="even">
+                          <td>09/05/12</td>
+                          <td>&nbsp;</td>
+                          <td>MasterCard Offer</td>
+                          <td class="textright">+500</td>
+                          <td class="textright">900</td>
+                        </tr>
+                        <tr class="odd">
+                          <td>09/05/12</td>
+                          <td>Affiliate Offer</td>
+                          <td>&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                        </tr>
+                        <tr class="even">
+                          <td>09/05/12</td>
+                          <td>&nbsp;</td>
+                          <td>MasterCard Offer</td>
+                          <td class="textright">&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                        </tr>
+                        <tr class="odd">
+                          <td class="borderbottom">09/05/12</td>
+                          <td class="borderbottom">Daily Top-Up Reload</td>
+                          <td class="borderbottom">&nbsp;</td>
+                          <td class="textright borderbottom">&nbsp;</td>
+                          <td class="textright borderbottom">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+                <div class="cash_chip_history">
+                    <h2>CASH BALANCE HISTORY</h2>
+                    <table width="100%" cellspacing="1" cellpadding="3" class="tbl_bhistory">
+                      <thead>
+                        <tr>
+                          <th class="first">DATE</th>
+                          <th class="second">DESCRIPTION</th>
+                          <th class="third">+/-</th>
+                          <th class="">BALANCE</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="odd">
+                          <td>09/05/12</td>
+                          <td>&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                        </tr>
+                        <tr class="even">
+                          <td>09/05/12</td>
+                          <td>&nbsp;</td>
+                          <td class="textright">+500</td>
+                          <td class="textright">900</td>
+                        </tr>
+                        <tr class="odd">
+                          <td>09/05/12</td>
+                          <td>&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                        </tr>
+                        <tr class="even">
+                          <td>09/05/12</td>
+                          <td>&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                          <td class="textright">&nbsp;</td>
+                        </tr>
+                        <tr class="odd">
+                          <td class="borderbottom">09/05/12</td>
+                          <td class="borderbottom">&nbsp;</td>
+                          <td class="textright borderbottom">&nbsp;</td>
+                          <td class="textright borderbottom">&nbsp;</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+     </div>
+     <div class="bottom_background"></div>
+
+{% endblock %}
+
